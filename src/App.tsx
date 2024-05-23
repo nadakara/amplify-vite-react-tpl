@@ -3,6 +3,8 @@ import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
+import { StorageManager } from '@aws-amplify/ui-react-storage';
+import '@aws-amplify/ui-react/styles.css';
 
 
 const client = generateClient<Schema>();
@@ -39,6 +41,12 @@ function App() {
   ))}
 </ul>
 <div>
+<StorageManager
+      acceptedFileTypes={['image/*']}
+      path="public/"
+      maxFileCount={1}
+      isResumable
+    />
   🥳 App successfully hosted. Try creating a new todo.
   <br />
   <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
